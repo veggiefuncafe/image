@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時光咖啡館 L'Heure du Café - 精緻菜單</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        coffee: {
+                            50: '#FDFBF7',
+                            100: '#F4ECE1',
+                            200: '#E6D5C3',
+                            300: '#D4B99F',
+                            400: '#BC9676',
+                            500: '#9E7250',
+                            600: '#845738',
+                            700: '#643F25',
+                            800: '#4A2E1B',
+                            900: '#2F1E12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Serif TC', sans-serif;
+            background-color: #FDFBF7;
+        }
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4ECE1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #BC9676;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9E7250;
+        }
+    </style>
+</head>
+<body class="text-coffee-900 selection:bg-coffee-200 selection:text-coffee-900 min-h-screen flex flex-col justify-between">
+
+    <!-- Floating Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-coffee-50/80 border-b border-coffee-100 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl text-coffee-700"><i class="fa-solid fa-mug-hot"></i></span>
+                <span class="font-serif font-bold text-xl tracking-wider text-coffee-800">L'Heure du Café</span>
+            </div>
+            
+            <!-- Quick Cart Indicator -->
+            <button onclick="toggleCart()" class="relative p-2.5 bg-coffee-100 hover:bg-coffee-200 text-coffee-800 rounded-full transition-all duration-300 focus:outline-none flex items-center justify-center">
+                <i class="fa-solid fa-shopping-bag text-lg"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-1 bg-coffee-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold opacity-0 transition-opacity duration-300">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative py-16 md:py-24 bg-gradient-to-b from-coffee-100/50 to-coffee-50 overflow-hidden">
+        <!-- Abstract background coffee-bean shape decorations -->
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-coffee-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 right-0 w-60 h-60 bg-coffee-300/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+            <span class="text-coffee-600 font-medium tracking-widest text-sm uppercase block mb-3">一杯溫暖，一刻靜謐</span>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold text-coffee-900 mb-6 leading-tight">時光咖啡館</h1>
+            <p class="text-coffee-600 max-w-xl mx-auto leading-relaxed text-sm md:text-base">
+                在城市的喧囂中，為您預留一處沈澱心靈的角落。我們嚴選世界產地頂級咖啡豆，由專業咖啡師匠心烘焙，呈現最純粹的咖啡風味與層次。
+            </p>
+            <div class="w-16 h-[2px] bg-coffee-400 mx-auto mt-8"></div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-coffee-800 inline-block relative pb-2">
+                今日精選菜單
+                <span class="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-coffee-300"></span>
+            </h2>
+            <p class="text-xs text-coffee-500 mt-2">請點擊商品卡片進行客製化與模擬加入購物車</p>
+        </div>
+
+        <!-- Menu Grid (Exactly 3 items as requested) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Item 1: 美式咖啡 -->
+            <div onclick="openCustomizeModal('美式咖啡', 100, '精選中深烘焙咖啡豆，微苦中帶有堅果與黑巧克力尾韻，口感純粹乾淨，喚醒美好的一天。')" 
+                 class="group bg-white rounded-2xl p-6 border border-coffee-100 hover:border-coffee-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between">
+                <div>
+                    <!-- Visual Icon Placeholder -->
+                    <div class="w-full h-48 rounded-xl bg-gradient-to-br from-coffee-800 to-coffee-900 flex items-center justify-center relative overflow-hidden mb-6">
+                        <span class="text-5xl text-coffee-200/90 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-mug-hot"></i></span>
+                        <div class="absolute bottom-3 left-3 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-coffee-100">經典淬鍊</div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-3">
+                        <h3 class="font-serif font-bold text-xl text-coffee-800 group-hover:text-coffee-600 transition-colors">美式咖啡</h3>
+                        <span class="font-serif font-bold text-lg text-coffee-700">$100</span>
+                    </div>
+                    <p class="text-coffee-600 text-sm leading-relaxed mb-6">
+                        精選中深烘焙咖啡豆，微苦中帶有堅果與黑巧克力尾韻，口感純粹乾淨。
+                    </p>
+                </div>
+                <div class="w-full bg-coffee-50 text-coffee-700 group-hover:bg-coffee-600 group-hover:text-white py-3 rounded-xl text-center text-sm font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <span>點擊選擇客製化</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Item 2: 拿鐵咖啡 -->
+            <div onclick="openCustomizeModal('拿鐵咖啡', 200, '黃金比例濃縮咖啡與醇厚蒸氣鮮乳的完美融合，覆蓋一層綿密溫柔的奶泡，乳香四溢，口感絲滑。')" 
+                 class="group bg-white rounded-2xl p-6 border border-coffee-100 hover:border-coffee-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between">
+                <div>
+                    <!-- Visual Icon Placeholder -->
+                    <div class="w-full h-48 rounded-xl bg-gradient-to-br from-coffee-500 to-coffee-600 flex items-center justify-center relative overflow-hidden mb-6">
+                        <span class="text-5xl text-coffee-50 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-cloud"></i></span>
+                        <div class="absolute bottom-3 left-3 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-coffee-50">人氣推薦</div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-3">
+                        <h3 class="font-serif font-bold text-xl text-coffee-800 group-hover:text-coffee-600 transition-colors">拿鐵咖啡</h3>
+                        <span class="font-serif font-bold text-lg text-coffee-700">$200</span>
+                    </div>
+                    <p class="text-coffee-600 text-sm leading-relaxed mb-6">
+                        黃金比例濃縮咖啡與醇厚蒸氣鮮乳的完美融合，覆蓋一層綿密溫柔的奶泡，絲滑香濃。
+                    </p>
+                </div>
+                <div class="w-full bg-coffee-50 text-coffee-700 group-hover:bg-coffee-600 group-hover:text-white py-3 rounded-xl text-center text-sm font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <span>點擊選擇客製化</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Item 3: 招牌卡布奇諾 -->
+            <div onclick="openCustomizeModal('招牌卡布奇諾', 150, '極富層次感的濃烈咖啡香與厚實蓬鬆的熱奶泡，最後撒上少許馥郁的肉桂粉或可可粉，極致豐盈的味覺饗宴。')" 
+                 class="group bg-white rounded-2xl p-6 border border-coffee-100 hover:border-coffee-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between">
+                <div>
+                    <!-- Visual Icon Placeholder -->
+                    <div class="w-full h-48 rounded-xl bg-gradient-to-br from-coffee-600 to-coffee-800 flex items-center justify-center relative overflow-hidden mb-6">
+                        <span class="text-5xl text-coffee-100 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-feather"></i></span>
+                        <div class="absolute bottom-3 left-3 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-coffee-100">咖啡師特調</div>
+                    </div>
+                    <div class="flex justify-between items-baseline mb-3">
+                        <h3 class="font-serif font-bold text-xl text-coffee-800 group-hover:text-coffee-600 transition-colors">招牌卡布奇諾</h3>
+                        <span class="font-serif font-bold text-lg text-coffee-700">$150</span>
+                    </div>
+                    <p class="text-coffee-600 text-sm leading-relaxed mb-6">
+                        厚實蓬鬆的奶泡與濃縮咖啡交織，撒上少許馥郁的肉桂粉或可可粉，口感層次分明。
+                    </p>
+                </div>
+                <div class="w-full bg-coffee-50 text-coffee-700 group-hover:bg-coffee-600 group-hover:text-white py-3 rounded-xl text-center text-sm font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
+                    <span>點擊選擇客製化</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Customization Modal -->
+    <div id="customize-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity duration-300" onclick="closeCustomizeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative z-10 shadow-2xl border border-coffee-100 transform scale-95 opacity-0 transition-all duration-300" id="modal-container">
+            <!-- Close Button -->
+            <button onclick="closeCustomizeModal()" class="absolute top-4 right-4 text-coffee-400 hover:text-coffee-700 p-2 rounded-full hover:bg-coffee-50 transition-colors">
+                <i class="fa-solid fa-times text-lg"></i>
+            </button>
+            
+            <h3 id="modal-title" class="font-serif text-2xl font-bold text-coffee-800 pr-8 mb-1">品項名稱</h3>
+            <p id="modal-description" class="text-coffee-500 text-xs mb-6">品項描述</p>
+            
+            <form id="customize-form" onsubmit="handleAddToCart(event)" class="space-y-6">
+                <!-- Temperature Option -->
+                <div>
+                    <span class="block text-sm font-semibold text-coffee-700 mb-3"><i class="fa-solid fa-temperature-half mr-2 text-coffee-500"></i>溫度選擇</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="border border-coffee-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="temperature" value="熱 (Hot)" checked class="sr-only peer">
+                            <span class="text-sm font-medium text-coffee-600 peer-checked:text-coffee-800 font-semibold">熱飲 (Hot)</span>
+                        </label>
+                        <label class="border border-coffee-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="temperature" value="去冰 (No Ice)" class="sr-only peer">
+                            <span class="text-sm font-medium text-coffee-600 peer-checked:text-coffee-800 font-semibold">去冰 (No Ice)</span>
+                        </label>
+                        <label class="border border-coffee-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors col-span-2">
+                            <input type="radio" name="temperature" value="微冰 (Easy Ice)" class="sr-only peer">
+                            <span class="text-sm font-medium text-coffee-600 peer-checked:text-coffee-800 font-semibold">微冰 (Easy Ice)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sweetness Option -->
+                <div>
+                    <span class="block text-sm font-semibold text-coffee-700 mb-3"><i class="fa-solid fa-cubes-stacked mr-2 text-coffee-500"></i>甜度調整</span>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="border border-coffee-200 rounded-xl py-2.5 px-2 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="sweetness" value="無糖 (0%)" checked class="sr-only peer">
+                            <span class="text-xs font-semibold text-coffee-600">無糖 (0%)</span>
+                        </label>
+                        <label class="border border-coffee-200 rounded-xl py-2.5 px-2 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="sweetness" value="半糖 (50%)" class="sr-only peer">
+                            <span class="text-xs font-semibold text-coffee-600">半糖 (50%)</span>
+                        </label>
+                        <label class="border border-coffee-200 rounded-xl py-2.5 px-2 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="sweetness" value="正常 (100%)" class="sr-only peer">
+                            <span class="text-xs font-semibold text-coffee-600">正常 (100%)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Milk Option (Only shown for non-Americano, but let's make it optional for everything dynamically) -->
+                <div id="milk-option-container">
+                    <span class="block text-sm font-semibold text-coffee-700 mb-3"><i class="fa-solid fa-cow mr-2 text-coffee-500"></i>乳製品更換</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="border border-coffee-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="milk" value="標準鮮乳" checked class="sr-only peer">
+                            <span class="text-sm font-medium text-coffee-600">標準鮮乳 (+0)</span>
+                        </label>
+                        <label class="border border-coffee-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:bg-coffee-50 transition-colors">
+                            <input type="radio" name="milk" value="燕麥奶" class="sr-only peer">
+                            <span class="text-sm font-medium text-coffee-600">燕麥奶 (+$20)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Quantity and Submit Button -->
+                <div class="pt-4 border-t border-coffee-100 flex items-center justify-between">
+                    <div class="flex items-center space-x-3 border border-coffee-200 rounded-xl p-1 bg-coffee-50">
+                        <button type="button" onclick="adjustModalQty(-1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-coffee-600 hover:bg-white hover:shadow-sm transition-all"><i class="fa-solid fa-minus text-xs"></i></button>
+                        <span id="modal-qty" class="w-6 text-center font-bold text-coffee-800 text-sm">1</span>
+                        <button type="button" onclick="adjustModalQty(1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-coffee-600 hover:bg-white hover:shadow-sm transition-all"><i class="fa-solid fa-plus text-xs"></i></button>
+                    </div>
+                    
+                    <button type="submit" class="bg-coffee-700 hover:bg-coffee-800 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2">
+                        <span>加入購物車</span>
+                        <span id="modal-submit-price">$100</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sidebar Shopping Cart -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 border-l border-coffee-100 flex flex-col justify-between">
+        <div class="p-6 border-b border-coffee-100 flex justify-between items-center bg-coffee-50">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-shopping-bag text-coffee-700 text-lg"></i>
+                <h3 class="font-serif font-bold text-lg text-coffee-800">您的點單明細</h3>
+            </div>
+            <button onclick="toggleCart()" class="text-coffee-400 hover:text-coffee-700 p-2 rounded-full hover:bg-coffee-100 transition-colors">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4">
+            <!-- Empty State -->
+            <div id="cart-empty" class="h-full flex flex-col items-center justify-center text-center text-coffee-400 py-12">
+                <i class="fa-solid fa-mug-hot text-5xl mb-4 text-coffee-200"></i>
+                <p class="text-sm font-medium">購物車目前是空的</p>
+                <p class="text-xs text-coffee-300 mt-1">選一杯喜愛的咖啡開始吧！</p>
+            </div>
+            
+            <!-- Dynamic Items go here -->
+        </div>
+
+        <!-- Checkout Section -->
+        <div class="p-6 border-t border-coffee-100 bg-coffee-50 space-y-4">
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-coffee-600">小計 (Subtotal)</span>
+                <span id="cart-total" class="font-serif font-bold text-xl text-coffee-800">$0</span>
+            </div>
+            <button onclick="triggerCheckout()" id="checkout-btn" class="w-full bg-coffee-700 hover:bg-coffee-800 text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                <span>模擬送出點單</span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Success Order Screen Modal -->
+    <div id="success-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-stone-900/70 backdrop-blur-md" onclick="closeSuccessModal()"></div>
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative z-10 shadow-2xl border border-coffee-100 transform scale-95 opacity-0 transition-all duration-300" id="success-container">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-coffee-800 mb-2">點單成功！</h3>
+            <p class="text-coffee-600 text-sm mb-6 leading-relaxed">
+                我們已收到您的模擬訂單。咖啡師正在為您預熱咖啡機，期待能為您奉上最溫暖的一杯。
+            </p>
+            <div class="bg-coffee-50 rounded-xl p-4 mb-6 text-left space-y-2 text-xs text-coffee-700 border border-coffee-100">
+                <div class="flex justify-between"><span>取餐編號：</span><span class="font-mono font-bold text-coffee-900">#CAFE-2026</span></div>
+                <div class="flex justify-between"><span>預估時間：</span><span>10 - 15 分鐘</span></div>
+            </div>
+            <button onclick="closeSuccessModal()" class="w-full bg-coffee-700 hover:bg-coffee-800 text-white font-semibold py-3 rounded-xl transition-colors duration-300">
+                太棒了，謝謝！
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-stone-900 text-stone-100 px-5 py-3 rounded-xl shadow-xl flex items-center space-x-3 text-sm opacity-0 pointer-events-none transform translate-y-4 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-message">商品已加入點單！</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-950 text-coffee-100/70 py-12 px-6 border-t border-coffee-900">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="font-serif font-bold text-lg text-white mb-2">L'Heure du Café</p>
+                <p class="text-xs">© 2026 時光咖啡館. 本網頁為互動菜單模擬體驗.</p>
+            </div>
+            <div class="flex space-x-6 text-lg">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // State management
+        let cart = [];
+        let currentItem = {
+            name: '',
+            basePrice: 0,
+            desc: '',
+            qty: 1
+        };
+
+        // DOM elements
+        const customizeModal = document.getElementById('customize-modal');
+        const modalContainer = document.getElementById('modal-container');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const successModal = document.getElementById('success-modal');
+        const successContainer = document.getElementById('success-container');
+        const toast = document.getElementById('toast');
+
+        // Styles active/inactive for custom radio styles
+        function setupRadioStyles() {
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                // Initial check styling
+                updateRadioAppearance(radio);
+                // On change trigger
+                radio.addEventListener('change', () => {
+                    const group = document.querySelectorAll(`input[name="${radio.name}"]`);
+                    group.forEach(r => updateRadioAppearance(r));
+                    calculateModalPrice();
+                });
+            });
+        }
+
+        function updateRadioAppearance(radio) {
+            const parent = radio.closest('label');
+            if (!parent) return;
+            if (radio.checked) {
+                parent.classList.remove('border-coffee-200', 'bg-white');
+                parent.classList.add('border-coffee-600', 'bg-coffee-100/50', 'ring-1', 'ring-coffee-500');
+            } else {
+                parent.classList.remove('border-coffee-600', 'bg-coffee-100/50', 'ring-1', 'ring-coffee-500');
+                parent.classList.add('border-coffee-200', 'bg-white');
+            }
+        }
+
+        // Initialize customizations custom styles
+        setupRadioStyles();
+
+        // Modal triggers
+        function openCustomizeModal(name, price, desc) {
+            currentItem = { name, basePrice: price, desc, qty: 1 };
+            
+            document.getElementById('modal-title').textContent = name;
+            document.getElementById('modal-description').textContent = desc;
+            document.getElementById('modal-qty').textContent = '1';
+            
+            // Show/Hide milk options (e.g. Americano doesn't traditionally have milk options)
+            const milkContainer = document.getElementById('milk-option-container');
+            if (name === '美式咖啡') {
+                milkContainer.classList.add('hidden');
+                // reset milk selection
+                const defaultMilk = document.querySelector('input[name="milk"][value="標準鮮乳"]');
+                if (defaultMilk) defaultMilk.checked = true;
+            } else {
+                milkContainer.classList.remove('hidden');
+            }
+
+            // Sync peer styles upon open
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(r => updateRadioAppearance(r));
+
+            calculateModalPrice();
+
+            // Open Modal
+            customizeModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContainer.classList.remove('scale-95', 'opacity-0');
+                modalContainer.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function closeCustomizeModal() {
+            modalContainer.classList.remove('scale-100', 'opacity-100');
+            modalContainer.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                customizeModal.classList.add('hidden');
+            }, 300);
+        }
+
+        function adjustModalQty(delta) {
+            let newQty = currentItem.qty + delta;
+            if (newQty < 1) return;
+            currentItem.qty = newQty;
+            document.getElementById('modal-qty').textContent = newQty;
+            calculateModalPrice();
+        }
+
+        function calculateModalPrice() {
+            let pricePerItem = currentItem.basePrice;
+            
+            // Extra cost for Oat Milk
+            if (currentItem.name !== '美式咖啡') {
+                const milkSelect = document.querySelector('input[name="milk"]:checked');
+                if (milkSelect && milkSelect.value === '燕麥奶') {
+                    pricePerItem += 20;
+                }
+            }
+
+            const total = pricePerItem * currentItem.qty;
+            document.getElementById('modal-submit-price').textContent = `$${total}`;
+        }
+
+        // Handle Add To Cart Form Submission
+        function handleAddToCart(event) {
+            event.preventDefault();
+            
+            const tempVal = document.querySelector('input[name="temperature"]:checked').value;
+            const sweetVal = document.querySelector('input[name="sweetness"]:checked').value;
+            
+            let milkVal = '';
+            let finalPrice = currentItem.basePrice;
+
+            if (currentItem.name !== '美式咖啡') {
+                milkVal = document.querySelector('input[name="milk"]:checked').value;
+                if (milkVal === '燕麥奶') {
+                    finalPrice += 20;
+                }
+            }
+
+            const newItem = {
+                id: Date.now() + Math.random().toString(36).substr(2, 5),
+                name: currentItem.name,
+                unitPrice: finalPrice,
+                qty: currentItem.qty,
+                temp: tempVal,
+                sweetness: sweetVal,
+                milk: milkVal
+            };
+
+            cart.push(newItem);
+            updateCartUI();
+            closeCustomizeModal();
+            showToast(`${newItem.name} 已加入點單！`);
+        }
+
+        // Cart Actions
+        function toggleCart() {
+            if (cartDrawer.classList.contains('translate-x-full')) {
+                cartDrawer.classList.remove('translate-x-full');
+            } else {
+                cartDrawer.classList.add('translate-x-full');
+            }
+        }
+
+        function updateCartUI() {
+            const cartContainer = document.getElementById('cart-items');
+            const cartEmptyState = document.getElementById('cart-empty');
+            const cartBadge = document.getElementById('cart-badge');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            // Badge Count
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            if (totalItems > 0) {
+                cartBadge.textContent = totalItems;
+                cartBadge.classList.remove('opacity-0');
+                checkoutBtn.disabled = false;
+            } else {
+                cartBadge.classList.add('opacity-0');
+                checkoutBtn.disabled = true;
+            }
+
+            // Remove previous item elements (keeping empty state if empty)
+            const elementsToRemove = cartContainer.querySelectorAll('.cart-item-card');
+            elementsToRemove.forEach(el => el.remove());
+
+            if (cart.length === 0) {
+                cartEmptyState.classList.remove('hidden');
+                document.getElementById('cart-total').textContent = '$0';
+                return;
+            } else {
+                cartEmptyState.classList.add('hidden');
+            }
+
+            let cartSubtotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.unitPrice * item.qty;
+                cartSubtotal += itemTotal;
+
+                const card = document.createElement('div');
+                card.className = "cart-item-card bg-coffee-50 border border-coffee-100 p-4 rounded-xl flex justify-between items-start transition-all";
+                
+                let detailsText = `${item.temp} / ${item.sweetness}`;
+                if (item.milk) {
+                    detailsText += ` / ${item.milk}`;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-1">
+                        <h4 class="font-serif font-bold text-coffee-800 text-sm md:text-base">${item.name}</h4>
+                        <p class="text-[11px] text-coffee-500">${detailsText}</p>
+                        <p class="text-xs font-semibold text-coffee-700 mt-2">$${item.unitPrice} × ${item.qty}</p>
+                    </div>
+                    <div class="flex flex-col items-end justify-between h-full space-y-4">
+                        <button onclick="removeCartItem('${item.id}')" class="text-stone-400 hover:text-rose-500 transition-colors p-1" title="刪除品項">
+                            <i class="fa-regular fa-trash-can text-sm"></i>
+                        </button>
+                        <div class="flex items-center space-x-2 border border-coffee-200 rounded-lg p-0.5 bg-white">
+                            <button onclick="adjustCartItemQty('${item.id}', -1)" class="w-6 h-6 flex items-center justify-center text-xs text-coffee-500 hover:bg-coffee-50 rounded"><i class="fa-solid fa-minus"></i></button>
+                            <span class="w-4 text-center text-xs font-bold text-coffee-700">${item.qty}</span>
+                            <button onclick="adjustCartItemQty('${item.id}', 1)" class="w-6 h-6 flex items-center justify-center text-xs text-coffee-500 hover:bg-coffee-50 rounded"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                `;
+                cartContainer.appendChild(card);
+            });
+
+            document.getElementById('cart-total').textContent = `$${cartSubtotal}`;
+        }
+
+        function removeCartItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        function adjustCartItemQty(id, delta) {
+            const item = cart.find(item => item.id === id);
+            if (!item) return;
+            const newQty = item.qty + delta;
+            if (newQty < 1) {
+                removeCartItem(id);
+            } else {
+                item.qty = newQty;
+                updateCartUI();
+            }
+        }
+
+        // Checkout simulation
+        function triggerCheckout() {
+            if (cart.length === 0) return;
+            
+            // Close drawer
+            cartDrawer.classList.add('translate-x-full');
+            
+            // Open Success Modal
+            successModal.classList.remove('hidden');
+            setTimeout(() => {
+                successContainer.classList.remove('scale-95', 'opacity-0');
+                successContainer.classList.add('scale-100', 'opacity-100');
+            }, 50);
+
+            // Clear Cart
+            cart = [];
+            updateCartUI();
+        }
+
+        function closeSuccessModal() {
+            successContainer.classList.remove('scale-100', 'opacity-100');
+            successContainer.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                successModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Toast Helper
+        let toastTimeout;
+        function showToast(message) {
+            clearTimeout(toastTimeout);
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
