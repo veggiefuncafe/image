@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芳草弄 Veggie Fun Café - 雙語精緻數位菜單</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons for Beautiful Design -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Serif TC for elegant headers & Plus Jakarta Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        forest: {
+                            50: '#F4F7F4',
+                            100: '#E7EDE7',
+                            200: '#CDDBCD',
+                            300: '#A3BFA4',
+                            600: '#3D6E4D',
+                            700: '#2E543A',
+                            800: '#213B29',
+                            950: '#0F1C13',
+                        },
+                        amberwood: {
+                            50: '#FAF8F5',
+                            100: '#F3EDE4',
+                            200: '#E5D6C4',
+                            500: '#BF9870',
+                            600: '#A47D54',
+                            700: '#8A653F',
+                            850: '#543D25',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Serif TC', sans-serif;
+            background-color: #FAF8F5;
+        }
+        /* Custom styled scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3EDE4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CDDBCD;
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3D6E4D;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-forest-950 selection:bg-forest-100 selection:text-forest-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-amberwood-50/95 border-b border-forest-100 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://veggiefuncafe.github.io/image/veggiefun.svg" alt="芳草弄 Veggie Fun Café Logo" class="w-10 h-10 object-contain rounded-full shadow-sm bg-white border border-forest-100" onerror="this.onerror=null; this.src='https://placehold.co/40x40/3d6e4d/ffffff?text=VF';">
+                <div>
+                    <h1 class="font-serif font-black text-xl sm:text-2xl tracking-wide text-forest-850 leading-none">芳草弄</h1>
+                    <p class="text-[10px] sm:text-xs text-forest-600 font-bold uppercase tracking-widest mt-0.5">Veggie Fun Café</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-semibold text-forest-700 bg-white border border-forest-100 px-4 py-2 rounded-full shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>歡迎內用與外帶 • Welcome to Order</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Header Brand Panel -->
+    <section class="bg-gradient-to-b from-amberwood-100 via-amberwood-50 to-amberwood-50/20 py-10 sm:py-16 border-b border-forest-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-forest-100 text-forest-700 text-xs font-bold">
+                        <i class="fa-solid fa-circle-info mr-1.5 text-forest-600"></i>雙語官方數位菜單 • Bilingual Digital Menu
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-forest-800 tracking-tight leading-tight">
+                        芳草弄 蔬食咖啡廳
+                    </h2>
+                    <p class="text-sm sm:text-base text-forest-750 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        我們堅持選用天然健康食材，提供全素 (Vegan) 與奶素 (Lacto-Veg) 手作輕食、嚴選咖啡、現萃茶飲及手工格子鬆餅。每一道餐點皆無肉、無蛋，讓您在綠意盎然的溫馨角落中，享用最純粹的輕盈美味。
+                    </p>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="lg:col-span-5 bg-white border border-forest-100 rounded-3xl p-6 shadow-md space-y-4">
+                    <div class="flex items-start space-x-3 text-xs sm:text-sm">
+                        <span class="text-forest-600 mt-1"><i class="fa-solid fa-map-location-dot text-lg"></i></span>
+                        <div class="space-y-0.5">
+                            <p class="font-bold text-forest-800">芳草弄 Veggie Fun Café</p>
+                            <p class="text-stone-500">新北市永和區水源街39巷1號之2</p>
+                            <p class="text-stone-500">聯絡電話：0956-660-509</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 text-xs sm:text-sm">
+                        <span class="text-forest-600 mt-1"><i class="fa-regular fa-clock text-lg"></i></span>
+                        <div class="space-y-0.5">
+                            <p class="font-bold text-forest-800">營業時間 Business Hours</p>
+                            <p class="text-stone-500">週四：11:00 ~ 18:00</p>
+                            <p class="text-stone-500">週五至週日：09:00 ~ 18:00 <span class="text-rose-600 font-bold">(最後點餐 17:00)</span></p>
+                            <p class="text-rose-600 font-bold">※ 週一至週三固定公休 Closed Monday to Wednesday</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-forest-100 space-y-2 text-xs">
+                        <div class="flex items-center text-forest-800 font-bold text-sm">
+                            <i class="fa-solid fa-circle-check mr-1.5 text-forest-600"></i>內用與外帶說明 Rules
+                        </div>
+                        <ul class="list-disc list-inside text-stone-500 space-y-1.5 pl-1">
+                            <li>內用最低消費為<span class="text-forest-850 font-bold">每人一杯飲料</span>。</li>
+                            <li>玫瑰系列飲品孕婦及生理期期間不宜飲用。</li>
+                            <li>自帶環保杯享有每杯 <span class="text-emerald-600 font-bold">折抵 $5 元</span> 的永續折扣！</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Takeaway Rules Promo Banner -->
+            <div class="mt-8 bg-gradient-to-r from-emerald-800 to-forest-600 text-white rounded-2xl p-5 shadow-lg flex flex-col md:flex-row justify-between items-center gap-4 border border-emerald-750">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl shadow-inner">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-emerald-200">★ 外帶享專屬優惠 Takeaway Savings ★</p>
+                        <p class="text-sm font-black mt-0.5">主食捲餅類現折 $5 • 飲品類現折 $10 • 套餐升級現折 $20！</p>
+                    </div>
+                </div>
+                <div class="text-[11px] md:text-xs text-emerald-100 bg-white/10 px-4 py-2 rounded-xl border border-white/20 text-center md:text-right">
+                    自帶環保杯每杯再折 $5 / 外帶提袋加購價 $2
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sticky Category Anchor Navigation -->
+    <section class="sticky top-[72px] z-30 bg-amberwood-50/95 border-b border-forest-100 py-3.5 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex overflow-x-auto gap-2 py-1 hide-scrollbar" id="category-tabs">
+                <a href="#savory-a" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">吐司/捲餅 A</a>
+                <a href="#savory-ah" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">熱壓/磚餅 AH</a>
+                <a href="#sweet-b" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">甜心系列 B</a>
+                <a href="#coffee-c" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">咖啡系列 C</a>
+                <a href="#tea-h" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">鮮茶 & 鮮奶茶 H/HM</a>
+                <a href="#flavored-hs" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">調味 & 無咖茶 HS/HD</a>
+                <a href="#sparkling-j" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">氣泡飲 J</a>
+                <a href="#snack-o" class="whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all">點心 & 鬆餅 O/W</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-16">
+
+        <!-- A. Savory Toast/Burrito -->
+        <section id="savory-a" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-sandwich"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">吐司 / 捲餅系列 (A)</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Savory: Toast & Burrito • 全素 (Vegetarian) 可選</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- A1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">薯泥沙拉</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Classic Potato (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- A2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">地瓜田園沙拉</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Sweet Potato w/ Thousand Island Dressing</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- A3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">鮪魚塔塔</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Veggie & Bean Fully vegetarian w/ special tuna flavor</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- A4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A4</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">法式芥末素花鼓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Vegan Crispy Squid Ring w/ mustard</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$130</span>
+                    </div>
+                </div>
+
+                <!-- A5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A5</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">黑胡椒植物肉丸</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Plant-Based Meat Ball w/ black pepper</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$160</span>
+                    </div>
+                </div>
+
+                <!-- A6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A6</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">韓式BBQ牛若</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Korean BBQ Plant-Beef (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$160</span>
+                    </div>
+                </div>
+
+                <!-- A7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A7</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">楓糖芥末素雞塊</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Vege nuggets w/ Cumin & chili sauce</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$160</span>
+                    </div>
+                </div>
+
+                <!-- A8 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A8</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">糖醋猴菇</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Hericium erinaceus w/ Sweet & sour sauce</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$180</span>
+                    </div>
+                </div>
+
+                <!-- A9 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">A9</span>
+                                <span class="bg-rose-500 text-white text-[8px] font-black uppercase tracking-wide px-1.5 py-0.5 rounded">New</span>
+                            </div>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">咖哩雞</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Curry Chicken (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：吐司 / 捲餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration info block -->
+<div class="bg-amberwood-50 border border-amberwood-200 rounded-2xl p-4 text-xs text-amberwood-850 flex flex-col gap-2">
+    <!-- 第一列：主食客製 -->
+    <span>
+        <i class="fa-solid fa-circle-plus mr-1.5 text-amberwood-600"></i>
+        <strong>主食客製加購：</strong>可加起司 (奶素) +$10，或吐司/捲餅皆可升級精緻套餐 +$100
+    </span>
+    
+    <!-- 第二列：套餐內容 -->
+    <span class="text-stone-500">
+        <strong>套餐內容：</strong>薯餅 + 甜點 + 飲料
+    </span>
+    
+    <!-- 第三列：飲品說明 -->
+    <span class="text-stone-500">
+        套餐飲料含紅茶/綠茶/美式咖啡三擇一，或換購其他飲品折抵$65
+    </span>
+</div>
+        </section>
+
+        <!-- AH. Savory Hot pressed sandwich/Wrapanini -->
+        <section id="savory-ah" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-fire-burner"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">熱壓吐司 / 墨西哥磚餅系列 (AH)</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Savory: Hot Pressed Sandwich & Wrapanini</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AH1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">薯泥熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Mashed potato (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- AH2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">鮪魚熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Veggie & Bean w/ special tuna flavor</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$75</span>
+                    </div>
+                </div>
+
+                <!-- AH3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">韓式泡菜年糕熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Tteokbokki (Korean Spicy Rice Cakes)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- AH4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH4</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">薯泥瓏瑕沙拉熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Classic Potato w/ Lobster Flavored Dressing</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- AH5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH5</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">泰式打拋植物肉熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Thai Basil Chili (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- AH6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH6</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">韓式BBQ牛若熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Korean BBQ Plant-Beef (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- AH7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH7</span>
+                            <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">黑松露蕈菇起司熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Stir-fry mushrooms with black truffle oil & cheese</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- AH8 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">AH8</span>
+                                <span class="bg-rose-500 text-white text-[8px] font-black uppercase tracking-wide px-1.5 py-0.5 rounded">New</span>
+                            </div>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">咖哩雞熱壓</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Curry Chicken (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">可選：熱壓吐司 / 磚餅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+            </div>
+            
+          
+            <div class="bg-amberwood-50 border border-amberwood-200 rounded-2xl p-4 text-xs text-amberwood-850 flex flex-col gap-2">
+    <!-- 第一列：主食客製 -->
+    <span>
+        <i class="fa-solid fa-circle-plus mr-1.5 text-amberwood-600"></i>
+        <strong>主食客製加購：</strong>可加起司 (奶素) +$10，或熱壓/磚餅皆可升級精緻套餐 +$100
+    </span>
+    
+    <!-- 第二列：套餐內容 -->
+    <span class="text-stone-500">
+        <strong>套餐內容：</strong>薯餅 + 甜點 + 飲料
+    </span>
+    
+    <!-- 第三列：飲品說明 -->
+    <span class="text-stone-500">
+        套餐飲料含紅茶/綠茶/美式咖啡三擇一，或換購其他飲品折抵$65
+    </span>
+</div>
+        </section>
+
+        <!-- B. Sweet Series -->
+        <section id="sweet-b" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-cookie-bite"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">甜心系列 (B)</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Sweet: Toast (Thin & Thick Slice) • 全素 / 奶素 可選</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- B1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">花生香蕉巧克力</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Banana w/ Peanut butter & chocolate</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- B2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">花生醬</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Peanut Butter (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$55</span>
+                    </div>
+                </div>
+
+                <!-- B3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">草莓醬</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Strawberry Jam (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$55</span>
+                    </div>
+                </div>
+
+                <!-- B4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B4</span>
+                            <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">榛果巧克力</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Hazelnut chocolate (Lacto-Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$55</span>
+                    </div>
+                </div>
+
+                <!-- B5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B5</span>
+                            <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">椰香奶酥</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Coconut Paste (Lacto-Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$55</span>
+                    </div>
+                </div>
+
+                <!-- B6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">B6</span>
+                            <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">鹹奶油</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Butter (Lacto-Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold bg-stone-50 px-2 py-1 rounded">薄片 / 厚片 可選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$55</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration info block -->
+            
+            <div class="bg-amberwood-50 border border-amberwood-200 rounded-2xl p-4 text-xs text-amberwood-850 flex flex-col gap-2">
+    <!-- 第一列：主食客製 -->
+    <span>
+        <i class="fa-solid fa-circle-plus mr-1.5 text-amberwood-600"></i>
+        <strong>甜心系列升級：</strong>皆可升級精緻套餐 +$100
+    </span>
+    
+    <!-- 第二列：套餐內容 -->
+    <span class="text-stone-500">
+        <strong>套餐內容：</strong>薯餅 + 甜點 + 飲料
+    </span>
+    
+    <!-- 第三列：飲品說明 -->
+    <span class="text-stone-500">
+        套餐飲料含紅茶/綠茶/美式咖啡三擇一，或換購其他飲品折抵$65
+    </span>
+</div>
+        </section>
+
+        <!-- C. Coffee Selection -->
+        <section id="coffee-c" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-mug-hot"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">咖啡系列 (C) • 360ML</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Coffee Selection • Ice/Hot</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- C1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C1</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">美式咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Americano</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">基本黑咖啡</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- C2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C2</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- C3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C3</span>
+                            <span class="bg-rose-50 text-rose-700 border border-rose-200 text-[9px] font-bold px-2 py-0.5 rounded">限熱飲 Hot Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">卡布奇諾</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Cappuccino (Hot)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="text-[10px] text-stone-400 font-semibold">可索取肉桂粉 Cinnamon</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- C4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C4</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">摩卡拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Mocha Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$110</span>
+                    </div>
+                </div>
+
+                <!-- C5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C5</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">榛果拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Hazelnut Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$110</span>
+                    </div>
+                </div>
+
+                <!-- C6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C6</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">香草拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Vanilla Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$110</span>
+                    </div>
+                </div>
+
+                <!-- C7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C7</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">焦糖拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Caramel Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$110</span>
+                    </div>
+                </div>
+
+                <!-- C8 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="absolute inset-x-0 bottom-0 h-1 bg-rose-200"></div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C8</span>
+                                <span class="bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded">New</span>
+                            </div>
+                            <span class="bg-rose-50 text-rose-800 border border-rose-200 text-[9px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>玫瑰警語</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>                            
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">玫瑰拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Rose Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                       <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                       <span class="text-[9px] text-rose-600 font-semibold leading-none">孕婦生理期不宜飲用 Avoid</span>
+                       <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- C9 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C9</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">黑糖拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Brown Sugar Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- C10 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C10</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">桂花拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Osmanthus Syrup Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- C11 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C11</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">抹茶拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Matcha Latte Coffee</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+
+                <!-- C12 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C12</span>
+                            <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">棉花糖拿鐵咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Marshmallow Coffee Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$150</span>
+                    </div>
+                </div>
+
+                <!-- C13 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C13</span>
+                            <span class="bg-sky-50 text-sky-700 border border-sky-200 text-[9px] font-bold px-2 py-0.5 rounded">限冰飲 Ice Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">西西里氣泡咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Sparkling Limeade Iced Coffee</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">特調氣泡風味</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- C14 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C14</span>
+                            <span class="bg-sky-50 text-sky-700 border border-sky-200 text-[9px] font-bold px-2 py-0.5 rounded">限冰飲 Ice Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">接骨木氣泡咖啡</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Sparkling Coffee with Elder Flower</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">清爽接骨木花香</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- C15 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">C15</span>
+                            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-[9px] font-bold px-2 py-0.5 rounded">限內用熱飲 Dine-in Hot</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">濃縮咖啡 (30ML)</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Espresso (Hot, Dine-in Only)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded">經典義式原液</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-stone-50 border border-stone-200 rounded-2xl p-4 text-xs text-stone-600">
+                <p class="leading-relaxed"><i class="fa-solid fa-circle-question mr-1.5 text-stone-500"></i><strong>咖啡備註：</strong>以上咖啡飲品均可免費要求附帶「糖包」或「奶精球」以調和口味。</p>
+            </div>
+        </section>
+
+        <!-- H & HM. Tea & Tea Latte -->
+        <section id="tea-h" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-mug-hot"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">鮮茶 & 茶拿鐵系列 (H/HM) • 480ML</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Tea & Tea Latte Selection • Ice/Hot</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- H1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">H1</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">阿薩姆紅茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Twinings Assam Bold</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">嚴選 Twinings 經典</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- H2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">H2</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">唐寧綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Twinings Pure Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">嚴選 Twinings 經典</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- H3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">H3</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">皇家伯爵茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Twinings Earl Grey</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">佛手柑香氣優雅</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- H4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">H4</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">臺灣小農青茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Taiwanese Small-holder Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">在地契作茶葉</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HM1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">紅 / 綠 / 伯爵 拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Assam/Pure Green/Earl Grey Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HM2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">青茶拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Oolong Green Tea Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- HM3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">鹽漬櫻花綠茶拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Salt-pickled Sakura Green Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- HM4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM4</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">桂花蜜釀紅 / 綠茶拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Osmanthus Syrup Assam/Green Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- HM5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM5</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">480ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">桂花蜜釀青茶拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Osmanthus Syrup Green Tea Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$125</span>
+                    </div>
+                </div>
+
+                <!-- HM6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM6</span>
+                            <span class="bg-stone-50 text-stone-700 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">中杯 360ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">楓糖法芙娜可可</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Maple Syrup Valrhona Cocoa Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$90</span>
+                    </div>
+                </div>
+
+                <!-- HM7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM7</span>
+                            <span class="bg-stone-50 text-stone-700 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">中杯 360ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">棉花糖法芙娜可可</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Marshmallow Valrhona Cocoa Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$130</span>
+                    </div>
+                </div>
+
+                <!-- HM8 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM8</span>
+                            <span class="bg-stone-50 text-stone-700 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">中杯 360ML 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">靜岡抹茶拿鐵</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Shizuoka Matcha Latte</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- HM9 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="absolute inset-x-0 bottom-0 h-1 bg-rose-200"></div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HM9</span>
+                                <span class="bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded">New</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="bg-rose-50 text-rose-800 border border-rose-200 text-[9px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>玫瑰警語</span>
+                                <span class="bg-stone-100 text-stone-800 border border-stone-200 text-[9px] font-bold px-2 py-0.5 rounded">冰 / 熱 Ice/Hot</span>                                
+                            </div>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">玫瑰鮮奶茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Rose Milk Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.5 rounded">可更換燕麥奶 +$20</span>
+                        <span class="text-[9px] text-rose-600 font-semibold leading-none">孕婦生理期不宜飲用 Avoid</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$110</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HS & HD. Flavored & Decaffeinated Tea -->
+        <section id="flavored-hs" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-glass-water"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">調味茶 & 無咖啡因草本茶系列 (HS/HD) • 480ML</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Flavored Tea & Decaffeinated Selection</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- HS1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS1</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">調味茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">焦糖蘋果紅茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Caramel Apple Assam</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">濃郁焦糖與清甜蘋果</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HS2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS2</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">調味茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">蜜桃紅 / 綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Peach Assam/Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">雙茶底任選</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HS3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS3</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">調味茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">桂花蜜釀紅 / 綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Honey Osmanthus Assam/Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">特調古法蜜釀</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HS4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS4</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">調味茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">桂花蜜釀青茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Honey Osmanthus Green Tea (Taiwan local)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">在地小農青茶底</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- HS5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS5</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[9px] font-bold px-2 py-0.5 rounded">限冰飲 Ice Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">百香綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Passion Fruit Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">酸甜解膩百香果</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HS6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS6</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[9px] font-bold px-2 py-0.5 rounded">限冰飲 Ice Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">紅心芭樂綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Red Guava Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">獨特本土紅心芭樂香</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HS7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HS7</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[9px] font-bold px-2 py-0.5 rounded">限冰飲 Ice Only</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">鹽漬櫻花綠茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Salt-pickled Sakura Green Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">鹹甜層次櫻花調和</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HD1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HD1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">洋甘菊茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Twinings Pure Camomile</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">舒緩夜間身心</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- HD2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HD2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">清靜康福茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Comforting Tea With Lemon</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">檸檬草本與薄荷葉</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- HD3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HD3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">蜜蘋舒緩茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Relaxing Tea With Apple</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">天然果乾無咖啡因</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- HD4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HD4</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖茶 冰/熱</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">蜜桃國寶茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Rooibos Tea With Peach</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">南非國寶茶基底</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- HD5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="absolute inset-x-0 bottom-0 h-1 bg-rose-200"></div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">HD5</span>
+                                <span class="bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded">New</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="bg-rose-50 text-rose-700 border border-rose-200 text-[9px] font-bold px-2 py-0.5 rounded">限熱飲 Hot Only</span>
+                                <span class="bg-rose-50 text-rose-800 border border-rose-200 text-[9px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>玫瑰警語</span>
+                            </div>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">玫瑰花茶</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Rose Herbal Tea</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[9px] text-rose-600 font-semibold leading-none">孕婦生理期不宜飲用 Avoid</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$120</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- J. Sparkling Drinks -->
+        <section id="sparkling-j" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-cloud-meatball"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">精緻氣泡飲系列 (J) • 480ML</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Craft Flavored Sparkling Drinks • 甜度冰塊固定 (Fixed Sugar & Ice)</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- J1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">J1</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖啡因 Decaf</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">檸蜜氣泡飲</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Lemon Sparkling (w/ maple sugar)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">*使用天然楓糖</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- J2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">J2</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖啡因 Decaf</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">蘋果紅了氣泡飲</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Apple Sparkling (Decaffeinated)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">沁甜蘋果風味氣泡</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+
+                <!-- J3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">J3</span>
+                            <span class="bg-sky-50 text-sky-800 border border-sky-100 text-[10px] font-bold px-2 py-0.5 rounded">無咖啡因 Decaf</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">紅粉佳人氣泡飲</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Red Guava & Cranberry Sparkling</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="text-[10px] text-stone-400 font-semibold">本土紅心芭樂與蔓越莓</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$100</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O & W. Snacks & Baked Waffles -->
+        <section id="snack-o" class="space-y-6 scroll-mt-36">
+            <div class="border-b border-forest-100 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <span class="text-forest-600 text-lg sm:text-xl"><i class="fa-solid fa-pizza-slice"></i></span>
+                    <h3 class="font-serif font-black text-xl sm:text-2xl text-forest-800">美式小點 & 格子鬆餅系列 (O/W)</h3>
+                </div>
+                <p class="text-[11px] uppercase font-bold text-stone-400 mt-1 tracking-wider font-sans">Crispy Snacks & Fresh Baked Waffles (*鬆餅現做需等候 10 分鐘)</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- O1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O1</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">薯餅 (1 塊)</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Hash Brown (1 Piece)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400">金黃香酥</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$35</span>
+                    </div>
+                </div>
+
+                <!-- O2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O2</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">香酥花枝圈 (3 塊)</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Vegan Crispy Squid Ring (3 Pieces)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400">大豆蛋白特製</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$45</span>
+                    </div>
+                </div>
+
+                <!-- O3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O3</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">黑胡椒植物肉丸 (5 顆)</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Plant-Based Meat Ball w/ black pepper</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400">紮實香濃口感</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$60</span>
+                    </div>
+                </div>
+
+                <!-- O4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O4</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">素G塊 (3 顆)</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Vege Nuggets (3 Pieces)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400">經典植物素肉塊</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$60</span>
+                    </div>
+                </div>
+
+                <!-- O5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O5</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">香酥猴菇</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Crispy Hericium Erinaceus (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400 font-semibold">嚴選天然猴頭菇</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$80</span>
+                    </div>
+                </div>
+
+                <!-- O6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">O6</span>
+                            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-leaf mr-1"></i>全素 Vegan</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">田園沙拉</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Garden Salad (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-right">
+                        <span class="text-[10px] text-stone-400">清爽無負擔</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$85</span>
+                    </div>
+                </div>
+
+                <!-- W1 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W1</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">原味鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Classic Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$60</span>
+                    </div>
+                </div>
+
+                <!-- W2 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W2</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">巧克力鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Chocolate Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- W3 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W3</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">草莓果醬鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Strawberry Jam Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$65</span>
+                    </div>
+                </div>
+
+                <!-- W4 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W4</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">起司鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Cheese Waffle (Lacto-vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$70</span>
+                    </div>
+                </div>
+
+                <!-- W5 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W5</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">香蕉巧克力鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Banana Chocolate Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- W6 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W6</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">焦糖蘋果鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Caramel Apple Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- W7 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W7</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">焦糖冰淇淋鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Caramel Ice Cream Waffle (Lacto-vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-amber-50 text-amber-850 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full"><i class="fa-solid fa-cheese mr-1"></i>奶素 Lacto-Veg</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$105</span>
+                    </div>
+                </div>
+
+                <!-- W8 -->
+                <div class="bg-white p-5 rounded-2xl border border-forest-100 shadow-sm flex flex-col justify-between space-y-3 hover:shadow-md transition-shadow">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="font-bold text-xs text-forest-700 bg-forest-50 px-2 py-0.5 rounded border border-forest-150">W8</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded"><i class="fa-regular fa-clock mr-1"></i>等候10分</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-forest-900 text-base sm:text-lg">巧克力棉花糖鬆餅</h4>
+                        <p class="text-xs text-stone-500 font-medium italic">Chocolate Marshmallow Waffle (Vegetarian)</p>
+                    </div>
+                    <div class="pt-3 border-t border-stone-100 flex justify-between items-center">
+                        <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">全素 Vegan</span>
+                        <span class="font-serif font-black text-lg text-forest-850">$140</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-amberwood-50 border border-amberwood-200 rounded-2xl p-4 text-xs text-amberwood-850 flex flex-col sm:flex-row gap-2 justify-between mt-6">
+                <span><i class="fa-solid fa-circle-plus mr-1.5 text-amberwood-600"></i><strong>鬆餅系列+飲料下午茶(14:00~16:30)時段打9折</strong></span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer containing details -->
+    <footer class="bg-forest-950 text-emerald-100/75 py-12 px-6 border-t border-forest-950 mt-16">
+        <div class="max-w-7xl mx-auto space-y-10">
+            
+            <!-- Warning Banner -->
+            <div class="bg-rose-950/40 border border-rose-900 rounded-2xl p-4 flex items-start space-x-3 text-xs text-rose-200">
+                <span class="text-rose-400 mt-0.5"><i class="fa-solid fa-circle-exclamation text-base"></i></span>
+                <div class="space-y-1">
+                    <p class="font-bold">【 玫瑰系列飲品安全警告 Rose Pregnancy Disclaimer 】</p>
+                    <p class="leading-relaxed">本咖啡廳之玫瑰系列相關草本與調和飲品（如：玫瑰拿鐵咖啡、玫瑰鮮奶茶、玫瑰花茶等）皆不適宜孕婦、產婦以及處於生理期期間之女性飲用，點餐與飲用前請多加留意身體狀況，謝謝您的配合。</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left text-xs border-t border-forest-900 pt-8">
+                <div class="space-y-3">
+                    <p class="font-serif font-black text-xl text-white tracking-wide">芳草弄 Veggie Fun Café</p>
+                    <p class="leading-relaxed text-stone-400">
+                        新北市永和區水源街39巷1號之2<br>
+                        堅持手作輕食、嚴選原茶與莊園咖啡。<br>
+                        全素與奶素多元友善餐館，無蛋無肉。
+                    </p>
+                </div>
+                <div class="space-y-2 text-stone-400">
+                    <p class="font-bold text-white text-sm">☆ 外帶驚喜折扣 (對照單品折抵) ☆</p>
+                    <p>• 墨西哥磚餅、捲餅、墨西哥甜磚餅類折 $5 元</p>
+                    <p>• 全系列咖啡、原萃鮮茶、茶拿鐵、調味茶與氣泡飲折 $10 元</p>
+                    <p>• 升級套餐（加 $100）於外帶結帳時折抵 $20 元</p>
+                </div>
+                <div class="space-y-3 text-stone-400">
+                    <p class="font-bold text-white text-sm">聯絡與資訊對照</p>
+                    <p>客服專線：0956-660-509</p>
+                    <p class="text-[10px] text-emerald-400/60">© 2026 芳草弄 Veggie Fun Café. Designed for Elegant Digital Menu Board.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Soft Active Menu highlight control logic -->
+    <script>
+        // Smoothly handle top tab active status when scrolling through categories
+        window.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('#category-tabs a');
+            const sections = document.querySelectorAll('section[id]');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-120px 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.getAttribute('id');
+                        tabs.forEach(tab => {
+                            const href = tab.getAttribute('href').substring(1);
+                            if (href === activeId) {
+                                tab.className = "whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-forest-600 text-white shadow-sm border border-transparent transition-all";
+                            } else {
+                                tab.className = "whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold bg-white border border-forest-200 text-forest-750 hover:bg-forest-600 hover:text-white hover:border-transparent transition-all";
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
